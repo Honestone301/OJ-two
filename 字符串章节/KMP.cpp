@@ -48,7 +48,7 @@ int Index_KMP(SString S, SString T, int pos)
             //   cout<<" "<<j<<endl;
         }
     }
-    if (j >= T[0])
+    if (j > T[0])
         return i - T[0];
     else
         return 0;
