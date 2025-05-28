@@ -16,8 +16,8 @@ int main()
     vector<int> rchild(n + 1, 0);
     vector<int> appear(n + 1, -1);
 
+    int m=n;
     n--;
-    cout<<"n是"<<n<<endl;
     while (n--)
     {
         int p, q;
@@ -34,7 +34,7 @@ int main()
     }
 
     queue<pair<int, int>> q1;
-    vector<int>deptth(n+1,0);
+    vector<int>deptth(m+1,0);
     q1.push({1, 1});
     while (!q1.empty())
     {
