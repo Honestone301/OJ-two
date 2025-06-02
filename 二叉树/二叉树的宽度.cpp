@@ -4,6 +4,16 @@
 #include <queue>
 #include <utility>
 using namespace std;
+/*
+思路：对于题给定的数据输入形式，现有一种应对方式：
+    创建三数组（左子树，右子树，根节点）进行存储
+        然后基于queue进行层序遍历（同时使用widen进行记录横向记录）
+        
+        数据类型为：make_pair<int,int>  ->  根节点node ｜  深度depth 
+        每当进行到node时候，在对应depth数组的depth进行自增操作
+
+    最后遍历一遍depth数组找出最大值即可
+*/
 int main()
 {
     ios::sync_with_stdio(false);
