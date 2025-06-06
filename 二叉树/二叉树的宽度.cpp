@@ -7,9 +7,13 @@ using namespace std;
 /*
 思路：对于题给定的数据输入形式，现有一种应对方式：
     创建三数组（左子树，右子树，根节点）进行存储
+    根节点数组默认值为-1
+    若为0则有左子节点
+    若为1则有双子节点
         然后基于queue进行层序遍历（同时使用widen进行记录横向记录）
-        
-        数据类型为：make_pair<int,int>  ->  根节点node ｜  深度depth 
+
+        数据类型为：make_pair<int,int>  ->  根节点node ｜  深度depth
+        要记得语句queue<pair<int,int>>q1;
         每当进行到node时候，在对应depth数组的depth进行自增操作
 
     最后遍历一遍depth数组找出最大值即可
@@ -26,7 +30,7 @@ int main()
     vector<int> rchild(n + 1, 0);
     vector<int> appear(n + 1, -1);
 
-    int m=n;
+    int m = n;
     n--;
     while (n--)
     {
@@ -44,7 +48,7 @@ int main()
     }
 
     queue<pair<int, int>> q1;
-    vector<int>deptth(m+1,0);
+    vector<int> deptth(m + 1, 0);
     q1.push({1, 1});
     while (!q1.empty())
     {
@@ -55,14 +59,16 @@ int main()
         {
             q1.push({lchind[node], depth + 1});
         }
-        if(rchild[node]){
-            q1.push({rchild[node],depth+1});
+        if (rchild[node])
+        {
+            q1.push({rchild[node], depth + 1});
         }
         deptth[depth]++;
     }
-    int max_depth=0;
-    for(auto i:deptth){
-        max_depth=max(max_depth,i);
+    int max_depth = 0;
+    for (auto i : deptth)
+    {
+        max_depth = max(max_depth, i);
     }
-    cout<<max_depth;
+    cout << max_depth;
 }

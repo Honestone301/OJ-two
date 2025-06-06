@@ -1,9 +1,10 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int QueenPos[100];
-int res=0;
+int QueenPos[100];//用来标记Queen的行列位置
+int res=0;//用来累积皇后数量
 int N;
+//算法用于穷尽所有行列里N皇后数量
 void dfs(int k){
     if(k==N){
         res++;
