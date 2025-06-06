@@ -13,7 +13,8 @@ int main()
         cin.get(x);
         while(x!='\n'){
             if(x=='#'){
-                if(s1.empty())s1.pop_back();
+                if(!s1.empty())
+                    s1.pop_back();
             }else
             if(x=='@'){
                 s1.clear();
